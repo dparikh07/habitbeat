@@ -1,0 +1,57 @@
+spring:
+  application:
+    name: backend
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/habitbeat
+    username: postgres
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+  mail:
+    host: sandbox.smtp.mailtrap.io
+    port: 587
+    username: d30256c0232b78
+    password: 1b950ef152349e
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+server:
+  port: 8080
+
+jwt:
+  signing-key: your-secret-key-here-at-least-32-chars-long-for-security
+  refresh-token-bytes: ${REFRESH_TOKEN_BYTES:32}
+  cookie-domain: ${COOKIE_DOMAIN:localhost}
+
+oauth:
+  google:
+    client-id: ${OAUTH_GOOGLE_CLIENT_ID:}
+    client-secret: ${OAUTH_GOOGLE_CLIENT_SECRET:}
+
+app:
+  url: http://localhost:3000
+
+email:
+  host: sandbox.smtp.mailtrap.io
+  port: 587
+  username: d30256c0232b78
+  password: 1b950ef152349e
+  from-address: ${EMAIL_FROM:noreply@habitbeat.com}
+  from-name: ${EMAIL_FROM_NAME:Habitbeat}
+
